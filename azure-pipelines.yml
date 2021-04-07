@@ -35,6 +35,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
+    ConnectedServiceName: 'Practice'
     appType: 'webApp'
     WebAppName: 'DevWebApp12'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
