@@ -38,11 +38,11 @@ steps:
     ConnectedServiceName: 'Practice'
     appType: 'webApp'
     WebAppName: 'DevWebApp12'
-    packageForWindows: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
+    ArtifactName: 'www'
     publishLocation: 'Container'
