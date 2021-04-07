@@ -38,7 +38,7 @@ steps:
     ConnectedServiceName: 'Practice'
     appType: 'webApp'
     WebAppName: 'DevWebApp12'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    packageForWindows: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 
 - task: PublishBuildArtifacts@1
