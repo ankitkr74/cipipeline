@@ -61,4 +61,4 @@ stages:
         azureSubscription: 'Practice'
         appType: 'webApp'
         WebAppName: 'DevWebApp12'
-        packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+        packageForLinux: '$(System.DefaultWorkingDirectory)/www/*.zip'
