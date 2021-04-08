@@ -38,9 +38,10 @@ stages:
         platform: '$(buildPlatform)'
         configuration: '$(buildConfiguration)'
     - task: PublishBuildArtifacts@1
+      displayName: Publish_Build_Artifacts
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'drop'
+        ArtifactName: 'www'
         publishLocation: 'Container'
 
 - stage: Deploy
@@ -48,15 +49,16 @@ stages:
   - job: Deploy    
     steps:
     - task: DownloadBuildArtifacts@0
+      displayName: Download_Build_Artifacts
       inputs:
         buildType: 'current'
-        downloadType: 'single'
-        artifactName: 'drop'
+        downloadType: 'specific'
         downloadPath: '$(System.ArtifactsDirectory)'
+        artifactName: 'www'
     - task: AzureRmWebAppDeployment@4
       inputs:
         ConnectionType: 'AzureRM'
-        azureSubscription: 'Microsoft Partner Network(b78e8ccf-4de4-4d05-97a3-3429b824fb6a)'
+        azureSubscription: 'Practice'
         appType: 'webApp'
-        WebAppName: 'WebAppSQLAnkit'
-        packageForLinux: '$(SystemArtifactsDirectory)/drop/*.zip'
+        WebAppName: 'DevWebApp12'
+        packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
