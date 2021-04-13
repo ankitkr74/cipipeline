@@ -62,3 +62,12 @@ stages:
         appType: 'webApp'
         WebAppName: 'DevWebApp12'
         packageForLinux: '$(System.DefaultWorkingDirectory)/www/*.zip'
+  #define environment type
+parameters:
+    - name: environment
+      displayName: Environment Type
+      type: string
+      default: Dev
+      values:
+        - Dev
+        - Prod
